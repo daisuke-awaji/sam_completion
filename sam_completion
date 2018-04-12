@@ -1,0 +1,67 @@
+_sam(){
+  local cur prev cword
+  _get_comp_words_by_ref -n : cur prev cword
+
+  # sam <second word>
+  if [ "${cword}" -eq 1 ]; then
+    COMPREPLY=( $(compgen -W "local validate package deploy help" -- "${cur}") )
+  fi
+
+  if [ "${cword}" -eq 2 ]; then
+
+      # -----------------------
+      # sam deploy <third word>
+      # -----------------------
+      if [ "${prev}" = "deploy" ]; then
+	  comp="--template-file --stack-name --parameter-overrides --capabilities --no-execute-changeset --role-arn --notification-arns help"
+	  COMPREPLY=( $(compgen -W "${comp}" -f -- "${cur}") )
+      fi
+
+      # -----------------------
+      # sam local <third word>
+      # -----------------------
+      if [ "${prev}" = "local" ]; then
+	  comp="start-api invoke generate-event help"
+	  COMPREPLY=( $(compgen -W "${comp}" -- "${cur}") )
+      fi
+
+      # -----------------------
+      # sam package <third word>
+      # -----------------------
+      if [ "${prev}" = "package" ]; then
+	  comp="--template-file --s3-bucket --s3-prefix --kms-key-id --output-template-file --use-json --force-upload"
+	  COMPREPLY=( $(compgen -W "${comp}" -f -- "${cur}") )
+      fi
+
+      # -----------------------
+      # sam validate <third word>
+      # -----------------------
+      if [ "${prev}" = "validate" ]; then
+	  COMPREPLY=( $(compgen -f -- "${cur}") )
+      fi
+  fi
+
+  if [ "${cword}" -eq 3 ]; then
+      # ----------------------------
+      # sam local <etc> <forth word>
+      # ----------------------------
+      # sam local generate-event <forth word>
+      if [ "${prev}" = "generate-event" ]; then
+	  comp="s3 sns kinesis dynamodb api schedule -help"
+	  COMPREPLY=( $(compgen -W "${comp}" -f -- "${cur}") )
+      fi
+      # sam local invoke <forth word>
+      if [ "${prev}" = "invoke" ]; then
+	  comp="--template --parameter-values --log-file --env-vars --event --debug-port --docker-volume-basedir --docker-network --skip-pull-image --profile"
+	  COMPREPLY=( $(compgen -W "${comp}" -f -- "${cur}") )
+      fi
+      # sam local start-api <forth word>
+      if [ "${prev}" = "start-api" ]; then
+	  comp="--template --parameter-values --log-file --static-dir --port --host --env-vars --debug-port --docker-volume-basedir --docker-network --skip-pull-image --profile --prefix-routing"
+	  COMPREPLY=( $(compgen -W "${comp}" -f -- "${cur}") )
+      fi
+  fi
+
+}
+
+complete -F _sam sam
