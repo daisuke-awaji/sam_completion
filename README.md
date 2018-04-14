@@ -4,11 +4,8 @@ It is a bash completion tool for [AWS SAM Local](https://github.com/awslabs/aws-
 
 ## Installation
 
-### 前提
-
 [bash_completion](https://github.com/scop/bash-completion) must be installed. Please set in advance.
 
-### インストール
 Execute the following and make it readable by `bash_completion`.
 ```
 $ wget https://raw.githubusercontent.com/daisuke-awaji/sam_completion/master/sam_completion \
