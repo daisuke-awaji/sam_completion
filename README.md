@@ -12,7 +12,7 @@
 ### インストール
 以下を実行して`bash_completion`で読み込めるようにします。
 ```
-$ wget https://github.com/daisuke-awaji/sam_completion/blob/master/sam_completion \
+$ wget https://raw.githubusercontent.com/daisuke-awaji/sam_completion/master/sam_completion \
 -P /usr/local/etc/bash_completion.d/
 ```
 
