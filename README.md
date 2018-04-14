@@ -12,6 +12,15 @@ $ wget https://raw.githubusercontent.com/daisuke-awaji/sam_completion/master/sam
 -P /usr/local/etc/bash_completion.d/
 ```
 
+If you do not have `bash_completion` installed, please execute the following command to read the source.
+```
+$ wget https://raw.githubusercontent.com/daisuke-awaji/sam_completion/master/sam_completion \
+-P <Any directory>
+$ echo "source <Any directory>/sam_completion" >> ~/.bashrc
+$ source ~/.bashrc
+```
+
+
 ## Usage
 You can complement by pressing `sam` followed by TAB.
 ```
