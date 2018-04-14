@@ -1,23 +1,22 @@
 # AWS SAM bash-completion
 
-[AWS SAM Local](https://github.com/awslabs/aws-sam-local#invoke-functions-locally)
-用のbash補完ツールです。
+It is a bash completion tool for [AWS SAM Local](https://github.com/awslabs/aws-sam-local#invoke-functions-locally).
 
 ## Installation
 
 ### 前提
 
-[bash_completion](https://github.com/scop/bash-completion)をインストールしている必要があります。事前に設定しておいてください。
+[bash_completion](https://github.com/scop/bash-completion) must be installed. Please set in advance.
 
 ### インストール
-以下を実行して`bash_completion`で読み込めるようにします。
+Execute the following and make it readable by `bash_completion`.
 ```
 $ wget https://raw.githubusercontent.com/daisuke-awaji/sam_completion/master/sam_completion \
 -P /usr/local/etc/bash_completion.d/
 ```
 
 ## Usage
-samコマンドに続いてTABを押せば補完されます。
+You can complement by pressing `sam` followed by TAB.
 ```
 $ sam <TAB>
 deploy    help      local     package   validate
