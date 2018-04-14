@@ -23,4 +23,4 @@ $ sam <TAB>
 deploy    help      local     package   validate
 ```
 
-<img src="https://user-images.githubusercontent.com/20736455/38687891-b422a2ec-3eb2-11e8-905b-236283818465.gif" width="900px">
+<img src="https://user-images.githubusercontent.com/20736455/38767300-7a215544-4019-11e8-983c-20c0a2d6cf14.gif" width="900px">
